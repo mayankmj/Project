@@ -1,3 +1,6 @@
+// ignore_for_file: duplicate_import
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_final/login.dart';
 import 'package:flutter_final/register.dart';
@@ -11,12 +14,6 @@ void main() {
       'register': (context) => MyRegister(),
       'login': (context) => MyLogin(),
       'home_page': (context) => HomePage(),
-    },
+      },
   ));
 }
-/*void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: HomePage(),
-  ));
-}*/

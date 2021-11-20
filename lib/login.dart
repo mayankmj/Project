@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class MyLogin extends StatefulWidget {
@@ -132,9 +133,6 @@ class _MyLoginState extends State<MyLogin> {
             ),
           ],
         ),
-        child: Center(
-          child form
-        )
       ),
     );
   }

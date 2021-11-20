@@ -35,6 +35,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     return Scaffold(
       body: getBody(),
       bottomSheet: getBottom(),
+     // backgroundColor: Colors.yellow,
     );
   }
   Widget getBottom(){
@@ -45,6 +46,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       child: FlatButton(
         color: primary,
         onPressed: (){
+          // Navigator.pushNamed(context, "MyHomePage");
         // your add cart here
       }, child: Text("ADD TO CART",style: TextStyle(
         fontSize: 18,
@@ -89,14 +91,15 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text("Name :",style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                     height: 1.5
                   ),),
                   SizedBox(width: 20,),
                   Flexible(
                                   child: Text(widget.name,style: TextStyle(
-                      fontSize: 16,
-                      height: 1.5
+                      fontSize: 22,
+                      height: 1.6
                     ),),
                   ),
                 ],
@@ -109,13 +112,15 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text("Code :",style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
                     height: 1.5
                   ),),
                   SizedBox(width: 20,),
                   Flexible(
                                   child: Text(widget.code,style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 22,
+                      //fontWeight: FontWeight.bold,
                       height: 1.5
                     ),),
                   ),
@@ -129,18 +134,20 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text("Price :",style: TextStyle(
-                    fontSize: 16,
-                    height: 1.5
+                    fontSize: 22,
+                    height: 1.5,
+                    fontWeight: FontWeight.bold,
+                   // fontWeight: FontWeight.bold,
                   ),),
                   SizedBox(width: 20,),
                   Flexible(
                                   child: Row(children: <Widget>[
                                     Text(widget.promotionPrice+"₹",style: TextStyle(
-                                      fontSize: 16,height: 1.5
+                                      fontSize: 22,height: 1.5
                                     ),),
                                     SizedBox(width: 20,),
                                     Text(widget.price+"₹",style: TextStyle(
-                                      fontSize: 20,height: 1.5,
+                                      fontSize: 18,height: 1.5,
                                       color: primary,
                                       fontWeight: FontWeight.w400,
                                       decoration: TextDecoration.lineThrough
@@ -249,7 +256,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text("Qty :",style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
                     height: 1.5
                   ),),
                   SizedBox(width: 20,),
@@ -277,7 +285,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           ),
                           SizedBox(width: 25,),
                           Text(qty.toString(),style: TextStyle(
-                            fontSize: 16
+                            fontSize: 20
                           ),),
                           SizedBox(width: 25,),
                           InkWell(

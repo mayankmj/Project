@@ -16,28 +16,27 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: getBody(),
+     // backgroundColor: Colors.black,
     );
   }
   Widget getBody(){
     var size = MediaQuery.of(context).size;
     return SafeArea(
-          child: ListView(
+      child: ListView(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(
-              top: 20,
-              left: 20,right: 20),
+                top: 20,
+                left: 20,right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("MyCanteen",style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w400
-                ),),
+                Text("MyCanteen",style: TextStyle(color: Colors.blue, fontSize: 40),
+                ),
                 Row(
                   children: <Widget>[
                     Icon(LineIcons.search),
-                    SizedBox(width: 15,),
+                    SizedBox(width: 20,),
                     Icon(LineIcons.shoppingCart)
                   ],
                 )
@@ -45,30 +44,32 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(height: 20,),
+          
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-                      child: Padding(
+            child: Padding(
               padding: const EdgeInsets.only(right: 20,left: 20),
               child: Row(children: List.generate(menuItems.length, (index){
                 return Padding(
                   padding: const EdgeInsets.only(right: 20),
                   child: InkWell(
                     onTap: (){
-                    setState(() {
-                       activeMenu = index;
-                    });
+                      setState(() {
+                        activeMenu = index;
+                      });
                     },
-                                      child: Container(
-                    decoration: BoxDecoration(
-                      border: Border(bottom: BorderSide(color: activeMenu == index ? primary : Colors.transparent,width: 2))
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border: Border(bottom: BorderSide(color: activeMenu == index ? primary : Colors.white,width: 2))
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(menuItems[index],style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.green,
+                        ),),
+                      ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(menuItems[index],style: TextStyle(
-                        fontSize: 30
-                      ),),
-                    ),
-              ),
                   ),
                 );
               })
@@ -81,48 +82,51 @@ class _HomePageState extends State<HomePage> {
               return InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (_) => ProductDetailPage(id: dataItems[index]['id'].toString(),
-                  name: dataItems[index]['name'],
-                  code: dataItems[index]['code'],
-                  img: dataItems[index]['img'],
-                  price: dataItems[index]['price'].toString(),
-                  promotionPrice: dataItems[index]['promotionPrice'].toString(),
-                  size: dataItems[index]['size'],
-                  color: dataItems[index]['color'],
+                    name: dataItems[index]['name'],
+                    code: dataItems[index]['code'],
+                    img: dataItems[index]['img'],
+                    price: dataItems[index]['price'].toString(),
+                    promotionPrice: dataItems[index]['promotionPrice'].toString(),
+                    size: dataItems[index]['size'],
+                    color: dataItems[index]['color'],
                   )));
                 },
-                              child: Card(
-            elevation: 2,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Hero(
-                    tag: dataItems[index]['id'].toString(),
-                                      child: Container(
-                      width: (size.width-16)/2,
-                      height: (size.width-16)/2,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(image: NetworkImage(dataItems[index]['img']),fit: BoxFit.cover)
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 15,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Text(dataItems[index]['code'],style: TextStyle(
-                      fontSize: 16
-                    ),),
-                  ),
-                  SizedBox(height: 10,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Text(dataItems[index]['price'].toString()+"₹",style: TextStyle(
-                      fontSize: 16
-                    ),),
-                  ),
-                  SizedBox(height: 10,),
-                ],
-            )
-          ),
+                child: Card(
+                    elevation: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Hero(
+                          tag: dataItems[index]['id'].toString(),
+                          child: Container(
+                            width: (size.width-16)/2,
+                            height: (size.width-16)/2,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(image: NetworkImage(dataItems[index]['img']),fit: BoxFit.cover)
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 15,),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Text(dataItems[index]['code'],style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.blue,
+                             // TextStyle(color: Colors.blue, fontSize: 40),
+                          ),),
+                        ),
+                        SizedBox(height: 10,),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Text(dataItems[index]['price'].toString()+"₹",style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.red
+                          ),),
+                        ),
+                        SizedBox(height: 10,),
+                      ],
+                    )
+                ),
               );
             }),
           )
